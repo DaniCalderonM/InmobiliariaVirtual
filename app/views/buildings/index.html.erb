@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+<div class="container">
+<h1><u>Edificios</u></h1>
+
+<div id="buildings">
+<table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Ciudad</th>
+          <th scope="col">Ver</th>
+          <th scope="col" colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @buildings.each do |building| %>
+    <%= render building %>
+   
+        <% end %>
+      </tbody>
+    </table>
+</div>
+
+<% if current_user %>
+<%= link_to "Nuevo Edificio", new_building_path, class:"btn btn-success" %>
+<% end %>
+</div>

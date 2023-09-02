@@ -1,0 +1,12 @@
+<div class="container"> 
+<h1><u>Editar Edificio</u></h1>
+
+<%= render "form", building: @building %>
+
+<br>
+
+<div>
+  <%= link_to "Mostrar este Edificio", @building, class:"btn btn-dark" %> |
+  <%= link_to "Volver al Index de Edificios", buildings_path, class:"btn btn-dark" %>
+</div>
+</div>

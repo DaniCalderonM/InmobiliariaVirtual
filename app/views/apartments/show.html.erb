@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+<div class="container">
+<h1><u>Información Departamento</u></h1>
+
+  <p><li><strong>Numero: <%= @apartment.number %></strong></li></p>
+
+  <p><li><strong>Edificio: <%= @apartment.building.name %></li></strong></p>
+
+  <p><li><strong>Estado: <%= @apartment.status %></li></strong></p>
+
+ 
+<p><li><strong>Imagenes:</strong></li></p>
+<% if @apartment.images.attached? %> 
+<div class="d-flex col-8">
+      <% @apartment.images.each do |image| %>
+      <%= image_tag image, class:"photo ms-1"%>
+       <% end %>
+
+       <% else %>
+
+      <%= image_tag 'defaultdep.jpg', class:"photo" %>
+      <% end %>
+</div>
+
+  <div class=" container mt-4">
+   <%= link_to "Volver al Index de Departamentos", apartments_path, class:"btn btn-dark mb-3" %>
+  <% if current_user %>
+  <%= link_to "Editar este Departamento", edit_apartment_path(@apartment), class:"btn btn-dark mb-3" %>
+  <%= button_to "Eliminar este Departamento", @apartment, method: :delete, class:"btn btn-danger mt-4 mb-3" %>
+  <% end %>
+  </div>
+</div>
